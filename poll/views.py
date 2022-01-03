@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
 from .forms import CreatePollForm
+from .models import Poll
 
 
 def home(request):
-    context = {}
-    return render(request, 'poll/home.html', context)
+    polls = Poll.objects.all()
+    return render(request, 'poll/home.html', {'polls': polls})
 
 
 def create(request):
