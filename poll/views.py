@@ -8,11 +8,6 @@ def home(request):
 
 
 def create(request):
-    context = {}
-    return render(request, 'poll/create.html', context)
-
-
-def create(request):
     if request.method == 'POST':
         form = CreatePollForm(request.POST)
         if form.is_valid():
