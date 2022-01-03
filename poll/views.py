@@ -33,4 +33,10 @@ def vote(request, poll_id):
         else:
             return HttpResponse(400, 'Invalid form option')
         poll.save()
-    return redirect('results', poll.id)
+        return redirect('results', poll.id)
+    return render(request, 'poll/vote.html', {'poll': poll})
+
+
+def results(request, poll_id):
+    poll = Poll.objects.get(pk=poll_id)
+    return render(request, 'poll/results.html', {'poll': poll})
