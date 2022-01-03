@@ -9,3 +9,6 @@ class Poll(models.Model):
     first_count = models.IntegerField(default=0)
     second_count = models.IntegerField(default=0)
     third_count = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.question
